@@ -89,6 +89,7 @@ header {
   padding: 0 15px;
   height: 26px;
   font-size: 12px;
+  font-weight: bold;
   color: var(--tc);
   background: transparent;
   border: 2px solid transparent;
