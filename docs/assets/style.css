@@ -180,15 +180,21 @@ main {
 /* Visited badge: dot always present, transparent until visited.
    background-color is one of the few properties allowed on :visited by browsers. */
 .posts .pt a::before {
-  content: '● ';
-  font-size: 7px;
+  content: 'visited';
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: bold;
+  background: var(--dim);
+  color: var(--bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-right: 6px;
   vertical-align: middle;
-  color: transparent;
+  letter-spacing: 0.03em;
 }
-.posts .pt a:visited                             { color: #1a1a1a; }
-.posts .pt a:visited::before                     { color: #888888; }
-[data-theme="dark"] .posts .pt a:visited         { color: #ece6f8; }
-[data-theme="dark"] .posts .pt a:visited::before { color: #9898b0; }
+
+.posts .pt a.visited::before { display: inline-block; }
 
 .dom {
   font-size: 11px;
