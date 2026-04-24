@@ -21,16 +21,16 @@
 }
 
 [data-theme="dark"] {
-  --bg:         #0f0f14;
-  --text:       #ccc5dc;
-  --dim:        #686878;
+  --bg:         #1c1c26;
+  --text:       #ece6f8;
+  --dim:        #9898b0;
   --accent:     #d9539a;
   --hdr-bg:     #3a1c62;
   --hdr-border: #000;
-  --border:     #2a2038;
-  --tag-bg:     #1a1228;
-  --item-bg:    #1c0d16;
-  --tc:         rgba(255,255,255,0.55);
+  --border:     #32284a;
+  --tag-bg:     #221630;
+  --item-bg:    #261320;
+  --tc:         rgba(255,255,255,0.62);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
