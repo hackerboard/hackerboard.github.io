@@ -179,22 +179,16 @@ main {
 
 /* Visited badge: dot always present, transparent until visited.
    background-color is one of the few properties allowed on :visited by browsers. */
-.posts .pt { position: relative; }
-
 .posts .pt a::before {
-  content: '●';
-  position: absolute;
-  left: -12px;
-  top: 0;
+  content: '● ';
   font-size: 7px;
-  line-height: 1.4;
+  vertical-align: middle;
   color: transparent;
 }
-/* color is the safest :visited property on pseudo-elements; no CSS vars allowed */
-.posts .pt a:visited                              { color: #1a1a1a; }
-.posts .pt a:visited::before                      { color: #888888; }
-[data-theme="dark"] .posts .pt a:visited          { color: #ece6f8; }
-[data-theme="dark"] .posts .pt a:visited::before  { color: #9898b0; }
+.posts .pt a:visited                             { color: #1a1a1a; }
+.posts .pt a:visited::before                     { color: #888888; }
+[data-theme="dark"] .posts .pt a:visited         { color: #ece6f8; }
+[data-theme="dark"] .posts .pt a:visited::before { color: #9898b0; }
 
 .dom {
   font-size: 11px;
