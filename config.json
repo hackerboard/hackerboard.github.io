@@ -1,0 +1,11 @@
+{
+  "site": {
+    "name": "Hackerboard",
+    "tagline": "Hacker News without the gatekeeping",
+    "url": "https://hackerboard.github.io"
+  },
+  "github": {
+    "owner": "Hackerboard",
+    "repo": "hackerboard.github.io"
+  }
+}

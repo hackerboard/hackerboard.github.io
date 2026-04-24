@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'index.html'
+      - 'signal.html'
+      - 'archive/**'
+      - 'feed.xml'
+      - 'feed.json'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      discussions: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node build.js
+
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html signal.html archive/ feed.xml feed.json
+          git diff --staged --quiet || git commit -m "build: regenerate [skip ci]"
+          git push

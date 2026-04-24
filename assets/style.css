@@ -1,0 +1,251 @@
+/* Hackerboard */
+
+:root {
+  --bg:         #ffffff;
+  --text:       #1a1a1a;
+  --dim:        #888;
+  --accent:     #c2387e;
+  --hdr-bg:     #5c2d91;
+  --hdr-border: #000;      /* border along header bottom + around active tab */
+  --border:     #e8e2f0;
+  --tag-bg:     #f3eefb;
+  --tc:         rgba(255,255,255,0.72);  /* inactive tab text */
+  --font: ui-monospace, Menlo, Consolas, 'Courier New', monospace;
+}
+
+[data-theme="dark"] {
+  --bg:         #0f0f14;
+  --text:       #ccc5dc;
+  --dim:        #686878;
+  --accent:     #d9539a;
+  --hdr-bg:     #3a1c62;
+  --hdr-border: #000;
+  --border:     #2a2038;
+  --tag-bg:     #1a1228;
+  --tc:         rgba(255,255,255,0.55);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 13px; }
+
+body {
+  font-family: var(--font);
+  line-height: 1.45;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a         { color: var(--text); text-decoration: none; }
+a:hover   { text-decoration: underline; }
+a:visited { color: var(--dim); }
+
+/* ── Top bar ────────────────────────────────────────────── */
+
+header {
+  background: var(--hdr-bg);
+  /* Border runs the full width of the bottom.
+     The active tab overlaps this line with bottom: -1px,
+     then sets border-bottom to --bg to make that segment invisible,
+     forming the ─────[╔tab╗]───── shape. */
+  border-bottom: 1px solid var(--hdr-border);
+}
+
+.hi {
+  padding: 0 16px;
+  height: 36px;
+  display: flex;
+  align-items: flex-end;  /* tabs anchor to the bottom edge */
+  gap: 2px;
+}
+
+/* Logo stays vertically centered, not bottom-aligned */
+.hname {
+  align-self: center;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #fff !important;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.hname:visited { color: #fff !important; }
+
+/* ── Tabs ───────────────────────────────────────────────── */
+
+/* All tabs share a 1px border (transparent by default so layout
+   stays stable when the active tab's border becomes visible) */
+.tab {
+  position: relative;
+  bottom: -1px;          /* slide 1px below header to cover border-bottom */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 28px;          /* 36 - 28 = 8px of purple visible above the tab */
+  font-size: 12px;
+  color: var(--tc);
+  background: transparent;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.tab:hover    { color: #fff; text-decoration: none; }
+.tab:visited  { color: var(--tc); }
+
+/* Active tab:
+   - background = page color  →  visual continuity with content below
+   - border on top+left+right = var(--hdr-border)  →  the 1px line going up-across-down
+   - border-bottom = var(--bg)  →  same as page, hides the header border-bottom beneath,
+     making the tab appear "open" into the content */
+.tab.active {
+  background: var(--bg);
+  border-color: var(--hdr-border);
+  border-bottom-color: var(--bg);
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* Right-side controls stay vertically centered */
+.hright {
+  align-self: center;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hright a {
+  font-size: 12px;
+  color: var(--tc);
+}
+
+.hright a:hover   { color: #fff; text-decoration: none; }
+.hright a:visited { color: var(--tc); }
+
+.hdark {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font);
+  font-size: 11px;
+  padding: 0;
+}
+
+.hdark:hover { color: #fff; }
+
+/* ── Main ──────────────────────────────────────────────── */
+
+main {
+  padding: 14px 20px 28px;
+  flex: 1;
+}
+
+/* ── Post list ─────────────────────────────────────────── */
+
+.posts { list-style: none; }
+
+.posts li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.posts li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.rk {
+  display: inline-block;
+  min-width: 2.4ch;
+  text-align: right;
+  margin-right: 8px;
+  color: var(--dim);
+  font-size: 11px;
+  vertical-align: baseline;
+}
+
+.pt           { font-size: 13px; line-height: 1.4; }
+.pt a         { color: var(--text); }
+.pt a:visited { color: var(--dim); }
+
+.dom {
+  font-size: 11px;
+  color: var(--dim);
+  margin-left: 6px;
+}
+
+.pm {
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: 3px;
+  padding-left: calc(2.4ch + 8px);
+}
+
+.pm a          { color: var(--dim); }
+.pm a:hover    { color: var(--text); text-decoration: none; }
+.pm a:visited  { color: var(--dim); }
+
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--dim);
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  padding: 0 3px;
+  line-height: 1.4;
+  margin-left: 2px;
+}
+
+/* ── Post detail ───────────────────────────────────────── */
+
+article { padding: 10px 0; }
+
+article h1.pt {
+  font-size: 15px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+article .pm { padding-left: 0; }
+
+.pdesc {
+  margin: 12px 0;
+  font-size: 12px;
+  color: var(--dim);
+  max-width: 72ch;
+  line-height: 1.65;
+}
+
+.ptags { margin: 8px 0; }
+
+.pact { margin-top: 14px; font-size: 12px; }
+
+.upvote         { color: var(--accent) !important; }
+.upvote:visited { color: var(--accent) !important; }
+
+/* ── Footer ────────────────────────────────────────────── */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 8px 20px;
+  font-size: 11px;
+  color: var(--dim);
+  text-align: center;
+}
+
+footer a          { color: var(--dim); }
+footer a:visited  { color: var(--dim); }
+
+/* ── Mobile ────────────────────────────────────────────── */
+
+@media (max-width: 560px) {
+  html { font-size: 12px; }
+  .rk  { display: none; }
+  .pm  { padding-left: 0; }
+  main { padding: 10px 12px; }
+  .tab { padding: 0 10px; }
+}

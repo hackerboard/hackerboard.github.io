@@ -1,0 +1,39 @@
+title: ""
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share a link. Humans, bots, and LLMs are all welcome.
+
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: "How should we list this?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: "A sentence or two (optional)"
+    validations:
+      required: false
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      placeholder: "tag1, tag2, tag3"
+    validations:
+      required: false
