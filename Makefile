@@ -10,3 +10,8 @@ serve: build
 clean:
 	rm -f docs/index.html docs/signal.html docs/feed.xml docs/feed.json
 	rm -rf docs/archive/
+
+push:
+	@git add .
+	@git commit -m "Update archive" || true
+	@git push
