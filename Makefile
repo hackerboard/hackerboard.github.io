@@ -5,8 +5,8 @@ build:
 
 serve: build
 	@echo "→ http://localhost:8085"
-	python3 -m http.server 8085
+	python3 -m http.server 8085 --directory docs
 
 clean:
-	rm -f index.html signal.html feed.xml feed.json
-	rm -rf archive/
+	rm -f docs/index.html docs/signal.html docs/feed.xml docs/feed.json
+	rm -rf docs/archive/

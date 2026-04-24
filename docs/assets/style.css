@@ -10,7 +10,13 @@
   --border:     #e8e2f0;
   --tag-bg:     #f3eefb;
   --tc:         rgba(255,255,255,0.72);  /* inactive tab text */
-  --font: ui-monospace, Menlo, Consolas, 'Courier New', monospace;
+
+  /* Monospace: used for logo, tags, retro UI chrome */
+  --font-mono: ui-monospace, Menlo, Consolas, 'Courier New', monospace;
+  /* Reading font: native system sans-serif, optimised for screen legibility */
+  --font-read: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Alias kept for retro elements that relied on --font */
+  --font: var(--font-mono);
 }
 
 [data-theme="dark"] {
@@ -29,7 +35,7 @@
 html { font-size: 13px; }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font-read);
   line-height: 1.45;
   background: var(--bg);
   color: var(--text);
@@ -46,24 +52,20 @@ a:visited { color: var(--dim); }
 
 header {
   background: var(--hdr-bg);
-  /* Border runs the full width of the bottom.
-     The active tab overlaps this line with bottom: -1px,
-     then sets border-bottom to --bg to make that segment invisible,
-     forming the ─────[╔tab╗]───── shape. */
   border-bottom: 1px solid var(--hdr-border);
 }
 
 .hi {
-  padding: 0 16px;
-  height: 36px;
+  padding: 12px 16px 0;
   display: flex;
-  align-items: flex-end;  /* tabs anchor to the bottom edge */
+  align-items: flex-end;
   gap: 2px;
 }
 
-/* Logo stays vertically centered, not bottom-aligned */
+/* Logo: monospace + vertically centred in the available chrome space */
 .hname {
   align-self: center;
+  font-family: var(--font-mono);
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 0.03em;
@@ -76,16 +78,14 @@ header {
 
 /* ── Tabs ───────────────────────────────────────────────── */
 
-/* All tabs share a 1px border (transparent by default so layout
-   stays stable when the active tab's border becomes visible) */
 .tab {
   position: relative;
-  bottom: -1px;          /* slide 1px below header to cover border-bottom */
+  bottom: -1px;
   z-index: 1;
   display: flex;
   align-items: center;
   padding: 0 15px;
-  height: 28px;          /* 36 - 28 = 8px of purple visible above the tab */
+  height: 26px;
   font-size: 12px;
   color: var(--tc);
   background: transparent;
@@ -96,11 +96,6 @@ header {
 .tab:hover    { color: #fff; text-decoration: none; }
 .tab:visited  { color: var(--tc); }
 
-/* Active tab:
-   - background = page color  →  visual continuity with content below
-   - border on top+left+right = var(--hdr-border)  →  the 1px line going up-across-down
-   - border-bottom = var(--bg)  →  same as page, hides the header border-bottom beneath,
-     making the tab appear "open" into the content */
 .tab.active {
   background: var(--bg);
   border-color: var(--hdr-border);
@@ -131,7 +126,7 @@ header {
   border: none;
   cursor: pointer;
   color: rgba(255,255,255,0.5);
-  font-family: var(--font);
+  font-family: var(--font-mono);
   font-size: 11px;
   padding: 0;
 }
@@ -150,22 +145,7 @@ main {
 .posts { list-style: none; }
 
 .posts li {
-  padding: 6px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.posts li:first-child {
-  border-top: 1px solid var(--border);
-}
-
-.rk {
-  display: inline-block;
-  min-width: 2.4ch;
-  text-align: right;
-  margin-right: 8px;
-  color: var(--dim);
-  font-size: 11px;
-  vertical-align: baseline;
+  padding: 7px 0;
 }
 
 .pt           { font-size: 13px; line-height: 1.4; }
@@ -176,13 +156,14 @@ main {
   font-size: 11px;
   color: var(--dim);
   margin-left: 6px;
+  font-family: var(--font-mono);
 }
 
 .pm {
   font-size: 11px;
   color: var(--dim);
   margin-top: 3px;
-  padding-left: calc(2.4ch + 8px);
+  font-family: var(--font-mono);
 }
 
 .pm a          { color: var(--dim); }
@@ -191,6 +172,7 @@ main {
 
 .tag {
   display: inline-block;
+  font-family: var(--font-mono);
   font-size: 10px;
   color: var(--dim);
   background: var(--tag-bg);
@@ -214,7 +196,7 @@ article .pm { padding-left: 0; }
 
 .pdesc {
   margin: 12px 0;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--dim);
   max-width: 72ch;
   line-height: 1.65;
@@ -222,10 +204,70 @@ article .pm { padding-left: 0; }
 
 .ptags { margin: 8px 0; }
 
-.pact { margin-top: 14px; font-size: 12px; }
+.pact { margin-top: 14px; font-size: 12px; font-family: var(--font-mono); }
 
 .upvote         { color: var(--accent) !important; }
 .upvote:visited { color: var(--accent) !important; }
+
+/* ── Submit page ───────────────────────────────────────── */
+
+.submit-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.submit-wrap h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+}
+
+.submit-wrap h2 {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin: 24px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.submit-wrap p,
+.submit-wrap li {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 60ch;
+}
+
+.submit-wrap ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+
+.submit-wrap ul li { margin-bottom: 4px; }
+
+.submit-cta {
+  margin: 40px 0 0;
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--hdr-bg);
+  color: #fff !important;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 13px 36px;
+  text-decoration: none !important;
+  letter-spacing: 0.04em;
+  transition: opacity 0.15s;
+}
+
+.cta-btn:hover   { opacity: 0.85; text-decoration: none !important; }
+.cta-btn:visited { color: #fff !important; }
 
 /* ── Footer ────────────────────────────────────────────── */
 
@@ -235,6 +277,7 @@ footer {
   font-size: 11px;
   color: var(--dim);
   text-align: center;
+  font-family: var(--font-mono);
 }
 
 footer a          { color: var(--dim); }
@@ -244,7 +287,6 @@ footer a:visited  { color: var(--dim); }
 
 @media (max-width: 560px) {
   html { font-size: 12px; }
-  .rk  { display: none; }
   .pm  { padding-left: 0; }
   main { padding: 10px 12px; }
   .tab { padding: 0 10px; }

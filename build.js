@@ -8,6 +8,7 @@ const path = require('path');
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const ROOT = __dirname;
+const DIST = path.join(ROOT, 'docs');
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
 const token = process.env.GH_TOKEN;
 const { owner, repo } = config.github;
@@ -289,7 +290,7 @@ function shell(title, body, prefix = '', activePage = null) {
     ${tab('new', 'new', 'index.html')}
     ${tab('signal', 'signal', 'signal.html')}
     <div class="hright">
-      <a href="https://github.com/${owner}/${repo}/discussions/new?category=submissions" target="_blank" rel="noopener">submit</a>
+      <a href="${prefix}submit.html">submit</a>
       <button class="hdark" onclick="toggleDark()">[dark]</button>
     </div>
   </div>
@@ -308,25 +309,27 @@ ${body}
 </html>`;
 }
 
-function postRow(post, rank) {
+function postRow(post) {
   const domain = post.domain ? ` <span class="dom">(${esc(post.domain)})</span>` : '';
   const tags = post.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  const href = post.link ? esc(post.link) : `archive/${post.number}.html`;
+  const linkAttrs = post.link ? ' target="_blank" rel="noopener"' : '';
   return `<li>
-  <div class="pt"><span class="rk">${rank}.</span> <a href="archive/${post.number}.html">${esc(post.title)}</a>${domain}</div>
+  <div class="pt"><a href="${href}"${linkAttrs}>${esc(post.title)}</a>${domain}</div>
   <div class="pm">${post.upvotes} pts &middot; by ${esc(post.author)} &middot; ${timeAgo(post.createdAt)} &middot; <a href="${esc(post.url)}" target="_blank" rel="noopener">${post.comments} comments</a>${tags ? ' &middot; ' + tags : ''}</div>
 </li>`;
 }
 
 function buildIndex(posts) {
   const sorted = [...posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  const rows = sorted.map((p, i) => postRow(p, i + 1)).join('\n');
-  return shell(config.site.name, `<ol class="posts">${rows}</ol>`, '', 'new');
+  const rows = sorted.map(p => postRow(p)).join('\n');
+  return shell(config.site.name, `<ul class="posts">${rows}</ul>`, '', 'new');
 }
 
 function buildSignal(posts) {
   const ranked = [...posts].sort((a, b) => b.upvotes - a.upvotes);
-  const rows = ranked.map((p, i) => postRow(p, i + 1)).join('\n');
-  return shell(`signal — ${config.site.name}`, `<ol class="posts">${rows}</ol>`, '', 'signal');
+  const rows = ranked.map(p => postRow(p)).join('\n');
+  return shell(`signal — ${config.site.name}`, `<ul class="posts">${rows}</ul>`, '', 'signal');
 }
 
 function buildPost(post) {
@@ -394,15 +397,15 @@ function buildFeedJson(posts) {
 async function main() {
   const posts = token ? await fetchPosts() : SAMPLE_POSTS;
 
-  fs.mkdirSync(path.join(ROOT, 'archive'), { recursive: true });
+  fs.mkdirSync(path.join(DIST, 'archive'), { recursive: true });
 
-  fs.writeFileSync(path.join(ROOT, 'index.html'), buildIndex(posts), 'utf8');
-  fs.writeFileSync(path.join(ROOT, 'signal.html'), buildSignal(posts), 'utf8');
-  fs.writeFileSync(path.join(ROOT, 'feed.xml'), buildRss(posts), 'utf8');
-  fs.writeFileSync(path.join(ROOT, 'feed.json'), buildFeedJson(posts), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'index.html'), buildIndex(posts), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'signal.html'), buildSignal(posts), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'feed.xml'), buildRss(posts), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'feed.json'), buildFeedJson(posts), 'utf8');
 
   for (const post of posts) {
-    fs.writeFileSync(path.join(ROOT, 'archive', `${post.number}.html`), buildPost(post), 'utf8');
+    fs.writeFileSync(path.join(DIST, 'archive', `${post.number}.html`), buildPost(post), 'utf8');
   }
 
   console.error(`[hackerboard] built ${posts.length} posts`);

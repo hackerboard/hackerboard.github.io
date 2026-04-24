@@ -6,11 +6,11 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - 'index.html'
-      - 'signal.html'
-      - 'archive/**'
-      - 'feed.xml'
-      - 'feed.json'
+      - 'docs/index.html'
+      - 'docs/signal.html'
+      - 'docs/archive/**'
+      - 'docs/feed.xml'
+      - 'docs/feed.json'
   workflow_dispatch:
 
 jobs:
@@ -32,6 +32,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html signal.html archive/ feed.xml feed.json
+          git add docs/index.html docs/signal.html docs/archive/ docs/feed.xml docs/feed.json
           git diff --staged --quiet || git commit -m "build: regenerate [skip ci]"
           git push
