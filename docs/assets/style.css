@@ -114,9 +114,9 @@ header {
 .tab.active::after {
   content: '';
   position: absolute;
-  left: -3px;
+  top: 24px;
+  left: -2px;
   right: -10px;
-  top: 22px;
   bottom: -10px;
   background: var(--bg);
   pointer-events: none;
