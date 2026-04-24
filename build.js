@@ -316,7 +316,7 @@ function postRow(post) {
   const linkAttrs = post.link ? ' target="_blank" rel="noopener"' : '';
   return `<li>
   <div class="pt"><a href="${href}"${linkAttrs}>${esc(post.title)}</a>${domain}</div>
-  <div class="pm">${post.upvotes} pts &middot; by ${esc(post.author)} &middot; ${timeAgo(post.createdAt)} &middot; <a href="${esc(post.url)}" target="_blank" rel="noopener">${post.comments} comments</a>${tags ? ' &middot; ' + tags : ''}</div>
+  <div class="pm">${post.upvotes} pts &middot; by ${esc(post.author)} &middot; ${timeAgo(post.createdAt)} &middot; <a href="${esc(post.url)}" target="_blank" rel="noopener">${post.comments} comments</a></div>
 </li>`;
 }
 

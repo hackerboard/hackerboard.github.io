@@ -8,49 +8,49 @@
     <title>Show HB: A static site generator in 50 lines of Node.js</title>
     <link>https://github.com/example/tiny-ssg</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/1</guid>
-    <pubDate>Fri, 24 Apr 2026 11:06:01 GMT</pubDate>
+    <pubDate>Fri, 24 Apr 2026 11:06:41 GMT</pubDate>
     <description>Tired of 10MB frameworks. Built mine in an afternoon. It generates this very site.</description>
   </item>
   <item>
     <title>The unreasonable effectiveness of simple HTTP APIs</title>
     <link>https://example.com/simple-apis</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/2</guid>
-    <pubDate>Fri, 24 Apr 2026 08:06:01 GMT</pubDate>
+    <pubDate>Fri, 24 Apr 2026 08:06:41 GMT</pubDate>
     <description>REST is fine. JSON is fine. Stop over-engineering.</description>
   </item>
   <item>
     <title>I asked 10 LLMs to write the same program — results were surprising</title>
     <link>https://example.com/llm-benchmark</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/3</guid>
-    <pubDate>Fri, 24 Apr 2026 05:06:01 GMT</pubDate>
+    <pubDate>Fri, 24 Apr 2026 05:06:41 GMT</pubDate>
     <description></description>
   </item>
   <item>
     <title>Erlang/OTP 27 released with significantly improved JSON support</title>
     <link>https://erlang.org/news/otp-27</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/4</guid>
-    <pubDate>Fri, 24 Apr 2026 01:06:01 GMT</pubDate>
+    <pubDate>Fri, 24 Apr 2026 01:06:41 GMT</pubDate>
     <description></description>
   </item>
   <item>
     <title>Why I still use RSS in 2025</title>
     <link>https://example.com/rss-2025</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/5</guid>
-    <pubDate>Thu, 23 Apr 2026 19:06:01 GMT</pubDate>
+    <pubDate>Thu, 23 Apr 2026 19:06:41 GMT</pubDate>
     <description>Algorithmic feeds are a cage. RSS is freedom.</description>
   </item>
   <item>
     <title>Writing a compiler in a weekend</title>
     <link>https://example.com/compiler-weekend</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/6</guid>
-    <pubDate>Thu, 23 Apr 2026 13:06:01 GMT</pubDate>
+    <pubDate>Thu, 23 Apr 2026 13:06:41 GMT</pubDate>
     <description>It's smaller than you think once you strip away the abstractions.</description>
   </item>
   <item>
     <title>GitHub Discussions as a database: a field report</title>
     <link>https://example.com/gh-discussions-db</link>
     <guid isPermaLink="false">https://github.com/Hackerboard/hackerboard.github.io/discussions/7</guid>
-    <pubDate>Thu, 23 Apr 2026 01:06:01 GMT</pubDate>
+    <pubDate>Thu, 23 Apr 2026 01:06:41 GMT</pubDate>
     <description></description>
   </item>
 </channel>
