@@ -179,16 +179,12 @@ main {
 
 /* Visited badge: dot always present, transparent until visited.
    background-color is one of the few properties allowed on :visited by browsers. */
-.posts .pt {
-  position: relative;
-  padding-left: 12px;
-}
-.posts .pm { padding-left: 12px; }
+.posts .pt { position: relative; }
 
 .posts .pt a::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: -10px;
   top: 0.45em;
   width: 6px;
   height: 6px;
