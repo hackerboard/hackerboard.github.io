@@ -52,7 +52,7 @@ a:visited { color: var(--dim); }
 
 header {
   background: var(--hdr-bg);
-  border-bottom: 1px solid var(--hdr-border);
+  border-bottom: 2px solid var(--hdr-border);
 }
 
 .hi {
@@ -80,7 +80,7 @@ header {
 
 .tab {
   position: relative;
-  bottom: -1px;
+  bottom: -2px;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ header {
   font-size: 12px;
   color: var(--tc);
   background: transparent;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   white-space: nowrap;
 }
 
