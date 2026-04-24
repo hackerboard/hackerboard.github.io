@@ -19,6 +19,20 @@
       ]
     },
     {
+      "id": "https://github.com/orgs/hackerboard/discussions/3",
+      "url": "https://hackerboard.github.io/archive/3.html",
+      "external_url": "https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation",
+      "title": "Anthropic reveals changes to Claude's harnesses and operating instructions likely caused degradation",
+      "summary": "_No response_",
+      "tags": [],
+      "date_published": "2026-04-24T17:13:03Z",
+      "authors": [
+        {
+          "name": "vednig"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/orgs/hackerboard/discussions/1",
       "url": "https://hackerboard.github.io/archive/1.html",
       "external_url": "https://github.com/francescobianco/seagrass-lang",
