@@ -29,7 +29,7 @@
   --hdr-border: #000;
   --border:     #32284a;
   --tag-bg:     #221630;
-  --item-bg:    #261320;
+  --item-bg:    #38183a;
   --tc:         rgba(255,255,255,0.62);
 }
 
@@ -174,9 +174,29 @@ main {
   padding: 10px 14px;
 }
 
-.pt           { font-size: 13px; line-height: 1.4; }
-.pt a         { color: var(--text); }
-.pt a:visited { color: var(--dim); }
+.pt { font-size: 13px; line-height: 1.4; }
+.pt a { color: var(--text); }
+
+/* Visited badge: dot always present, transparent until visited.
+   background-color is one of the few properties allowed on :visited by browsers. */
+.posts .pt {
+  position: relative;
+  padding-left: 12px;
+}
+.posts .pm { padding-left: 12px; }
+
+.posts .pt a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.posts .pt a:visited           { color: var(--text); }
+.posts .pt a:visited::before   { background-color: var(--dim); }
 
 .dom {
   font-size: 11px;
