@@ -78,6 +78,7 @@ header {
 }
 
 .hname:visited { color: #fff !important; }
+.hname:hover   { text-decoration: none; }
 
 /* ── Tabs ───────────────────────────────────────────────── */
 
