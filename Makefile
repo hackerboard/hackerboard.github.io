@@ -12,6 +12,7 @@ clean:
 	rm -rf docs/archive/
 
 push:
+	@git pull --no-rebase
 	@git add .
 	@git commit -m "Update archive" || true
 	@git push
