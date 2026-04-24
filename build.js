@@ -11,7 +11,7 @@ const ROOT = __dirname;
 const DIST = path.join(ROOT, 'docs');
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
 const token = process.env.GH_TOKEN;
-const { owner, repo } = config.github;
+const { owner, repo, submit_url } = config.github;
 
 // ─── Sample data (used locally when GH_TOKEN is absent) ──────────────────────
 
@@ -332,6 +332,41 @@ function buildSignal(posts) {
   return shell(`signal — ${config.site.name}`, `<ul class="posts">${rows}</ul>`, '', 'signal');
 }
 
+function buildSubmit() {
+  const body = `<div class="submit-wrap">
+    <h1>Submit to Hackerboard</h1>
+
+    <h2>What is Hackerboard?</h2>
+    <p>A community-curated link board for hackers and builders. Every post is a GitHub Discussion — no algorithm, no tracking, no walled garden. The site rebuilds from those discussions every 15 minutes.</p>
+
+    <h2>What to submit</h2>
+    <ul>
+      <li>Articles, tools, or libraries worth reading</li>
+      <li><strong>Show HB:</strong> your own projects and experiments</li>
+      <li>Releases, papers, or deep-dives on programming and systems</li>
+    </ul>
+
+    <h2>How</h2>
+    <ul>
+      <li>Click the button below — a GitHub Discussion template opens</li>
+      <li>Fill in title, link, description, and tags</li>
+      <li>Submit — your post appears within 15 minutes</li>
+    </ul>
+
+    <h2>Guidelines</h2>
+    <ul>
+      <li>Link to the original source, not aggregators</li>
+      <li>Use <strong>Show HB:</strong> when submitting your own work</li>
+      <li>Spam or off-topic posts may be removed</li>
+    </ul>
+
+    <div class="submit-cta">
+      <a class="cta-btn" href="${esc(submit_url)}" target="_blank" rel="noopener">+ New Submission</a>
+    </div>
+  </div>`;
+  return shell(`Submit — ${config.site.name}`, body, '', 'submit');
+}
+
 function buildPost(post) {
   const domain = post.domain ? ` <span class="dom">(${esc(post.domain)})</span>` : '';
   const desc = post.description ? `<p class="pdesc">${esc(post.description)}</p>` : '';
@@ -401,6 +436,7 @@ async function main() {
 
   fs.writeFileSync(path.join(DIST, 'index.html'), buildIndex(posts), 'utf8');
   fs.writeFileSync(path.join(DIST, 'signal.html'), buildSignal(posts), 'utf8');
+  fs.writeFileSync(path.join(DIST, 'submit.html'), buildSubmit(), 'utf8');
   fs.writeFileSync(path.join(DIST, 'feed.xml'), buildRss(posts), 'utf8');
   fs.writeFileSync(path.join(DIST, 'feed.json'), buildFeedJson(posts), 'utf8');
 

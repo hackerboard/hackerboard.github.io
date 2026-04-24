@@ -6,6 +6,7 @@
   },
   "github": {
     "owner": "Hackerboard",
-    "repo": "hackerboard.github.io"
+    "repo": "hackerboard.github.io",
+    "submit_url": "https://github.com/orgs/hackerboard/discussions/new?category=hackerboard"
   }
 }
