@@ -191,8 +191,11 @@ main {
   border-radius: 50%;
   background-color: transparent;
 }
-.posts .pt a:visited           { color: var(--text); }
-.posts .pt a:visited::before   { background-color: var(--dim); }
+/* :visited only accepts literal colours (no CSS vars) for privacy reasons */
+.posts .pt a:visited                              { color: #1a1a1a; }
+.posts .pt a:visited::before                      { background-color: #888888; }
+[data-theme="dark"] .posts .pt a:visited          { color: #ece6f8; }
+[data-theme="dark"] .posts .pt a:visited::before  { background-color: #9898b0; }
 
 .dom {
   font-size: 11px;
