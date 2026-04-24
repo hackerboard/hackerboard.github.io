@@ -175,26 +175,15 @@ main {
 }
 
 .pt { font-size: 13px; line-height: 1.4; }
-.pt a { color: var(--text); }
-
-/* Visited badge: dot always present, transparent until visited.
-   background-color is one of the few properties allowed on :visited by browsers. */
-.posts .pt a::before {
-  content: 'visited';
-  display: none;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: bold;
-  background: var(--dim);
-  color: var(--bg);
-  padding: 1px 5px;
-  border-radius: 3px;
-  margin-right: 6px;
-  vertical-align: middle;
-  letter-spacing: 0.03em;
+.pt a {
+  color: var(--text);
 }
-
-.posts .pt a.visited::before { display: inline-block; }
+.posts .pt a:visited {
+  color: #5f545f;
+}
+[data-theme="dark"] .posts .pt a:visited {
+  color: #d8d0e4;
+}
 
 .dom {
   font-size: 11px;
