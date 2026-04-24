@@ -108,6 +108,20 @@ header {
   box-shadow: 4px 3px 5px -3px rgba(0,0,0,0.45);
 }
 
+/* Mask the shadow bleed into the white content area below the tab.
+   The content box is 22px tall (26px height - 2px top border - 2px bottom border),
+   so top:22px lands exactly at the bottom border and we extend further down. */
+.tab.active::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -10px;
+  top: 22px;
+  bottom: -10px;
+  background: var(--bg);
+  pointer-events: none;
+}
+
 /* Right-side controls stay vertically centered */
 .hright {
   align-self: center;
