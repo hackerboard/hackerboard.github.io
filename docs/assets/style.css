@@ -9,6 +9,7 @@
   --hdr-border: #000;      /* border along header bottom + around active tab */
   --border:     #e8e2f0;
   --tag-bg:     #f3eefb;
+  --item-bg:    #fce9f3;
   --tc:         rgba(255,255,255,0.72);  /* inactive tab text */
 
   /* Monospace: used for logo, tags, retro UI chrome */
@@ -28,6 +29,7 @@
   --hdr-border: #000;
   --border:     #2a2038;
   --tag-bg:     #1a1228;
+  --item-bg:    #1c0d16;
   --tc:         rgba(255,255,255,0.55);
 }
 
@@ -142,10 +144,16 @@ main {
 
 /* ── Post list ─────────────────────────────────────────── */
 
-.posts { list-style: none; }
+.posts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .posts li {
-  padding: 7px 0;
+  background: var(--item-bg);
+  padding: 10px 14px;
 }
 
 .pt           { font-size: 13px; line-height: 1.4; }
