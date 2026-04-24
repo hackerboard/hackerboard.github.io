@@ -138,7 +138,7 @@ header {
 /* ── Main ──────────────────────────────────────────────── */
 
 main {
-  padding: 14px 20px 28px;
+  padding: 12px 12px 28px;
   flex: 1;
 }
 
@@ -148,7 +148,7 @@ main {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .posts li {
@@ -296,6 +296,6 @@ footer a:visited  { color: var(--dim); }
 @media (max-width: 560px) {
   html { font-size: 12px; }
   .pm  { padding-left: 0; }
-  main { padding: 10px 12px; }
+  main { padding: 10px; }
   .tab { padding: 0 10px; }
 }
