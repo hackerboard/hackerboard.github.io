@@ -289,8 +289,8 @@ function shell(title, body, prefix = '', activePage = null) {
     <a class="hname" href="${prefix}index.html">${esc(config.site.name)}</a>
     ${tab('new', 'new', 'index.html')}
     ${tab('signal', 'signal', 'signal.html')}
+    ${tab('submit', 'submit', 'submit.html')}
     <div class="hright">
-      <a href="${prefix}submit.html">submit</a>
       <button class="hdark" onclick="toggleDark()">[dark]</button>
     </div>
   </div>
