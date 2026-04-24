@@ -151,9 +151,9 @@ async function fetchPosts() {
 
   const categories = catResult.data.repository.discussionCategories.nodes;
   const cat = categories.find(c =>
-    c.slug === 'submissions' || c.name.toLowerCase() === 'submissions'
+    c.slug === 'hackerboard' || c.name.toLowerCase() === 'hackerboard'
   );
-  if (!cat) throw new Error('Category "submissions" not found in GitHub Discussions');
+  if (!cat) throw new Error('Category "hackerboard" not found in GitHub Discussions');
 
   const posts = [];
   let cursor = null;

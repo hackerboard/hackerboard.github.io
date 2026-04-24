@@ -4,7 +4,7 @@ A community-curated link board for hackers, builders, and curious minds. Every p
 
 ## How it works
 
-1. Users submit links via GitHub Discussions (category: `submissions`).
+1. Users submit links via GitHub Discussions (category: `hackerboard`).
 2. A GitHub Actions workflow runs `build.js` every 15 minutes.
 3. `build.js` fetches discussions via the GitHub GraphQL API, renders HTML, and writes everything to `docs/`.
 4. GitHub Pages serves the `docs/` folder.
