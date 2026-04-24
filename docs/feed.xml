@@ -4,6 +4,19 @@
   <title>Hackerboard</title>
   <link>https://hackerboard.github.io</link>
   <description>Hacker News without the gatekeeping</description>
-
+  <item>
+    <title>Show HB: leaf - Terminal Markdown Previewer, GUI-like experience.</title>
+    <link>https://github.com/RivoLink/leaf</link>
+    <guid isPermaLink="false">https://github.com/orgs/hackerboard/discussions/2</guid>
+    <pubDate>Fri, 24 Apr 2026 13:37:15 GMT</pubDate>
+    <description>_No response_</description>
+  </item>
+  <item>
+    <title>Show HN: Seagrass – a workflow language that compiles to BEAM without brokers</title>
+    <link>https://github.com/francescobianco/seagrass-lang</link>
+    <guid isPermaLink="false">https://github.com/orgs/hackerboard/discussions/1</guid>
+    <pubDate>Fri, 24 Apr 2026 13:36:57 GMT</pubDate>
+    <description>_No response_</description>
+  </item>
 </channel>
 </rss>
