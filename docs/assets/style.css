@@ -182,20 +182,19 @@ main {
 .posts .pt { position: relative; }
 
 .posts .pt a::before {
-  content: '';
+  content: '●';
   position: absolute;
-  left: -10px;
-  top: 0.45em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: transparent;
+  left: -12px;
+  top: 0;
+  font-size: 7px;
+  line-height: 1.4;
+  color: transparent;
 }
-/* :visited only accepts literal colours (no CSS vars) for privacy reasons */
+/* color is the safest :visited property on pseudo-elements; no CSS vars allowed */
 .posts .pt a:visited                              { color: #1a1a1a; }
-.posts .pt a:visited::before                      { background-color: #888888; }
+.posts .pt a:visited::before                      { color: #888888; }
 [data-theme="dark"] .posts .pt a:visited          { color: #ece6f8; }
-[data-theme="dark"] .posts .pt a:visited::before  { background-color: #9898b0; }
+[data-theme="dark"] .posts .pt a:visited::before  { color: #9898b0; }
 
 .dom {
   font-size: 11px;
