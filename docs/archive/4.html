@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erlang/OTP 27 released with significantly improved JSON support</title>
+<title>Show HB: puku-markdown - Explicit‑stack, pure CommonMark parser &amp; renderer</title>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="alternate" type="application/rss+xml" title="Hackerboard" href="../feed.xml">
@@ -23,14 +23,25 @@
 </header>
 <main>
 <article>
-  <h1 class="pt"><a href="https://erlang.org/news/otp-27" target="_blank" rel="noopener">Erlang/OTP 27 released with significantly improved JSON support</a> <span class="dom">(erlang.org)</span></h1>
-  <div class="pm">18 pts &middot; by beam_lover &middot; 12h</div>
+  <h1 class="pt"><a href="https://github.com/curlinkw/puku-markdown" target="_blank" rel="noopener">Show HB: puku-markdown - Explicit‑stack, pure CommonMark parser &amp; renderer</a> <span class="dom">(github.com)</span></h1>
+  <div class="pm">0 pts &middot; by curlinkw &middot; 1h</div>
+  <p class="pdesc">I built puku-markdown as a refactoring effort targeting markdown-it-py. While it's a great reference implementation, the actual Python port suffers from accumulated quirks, overly complex mutable state, and edge-case brittleness that make maintenance a headache.
+
+This is a from-scratch rebuild that preserves CommonMark compliance while prioritizing clean architecture:
+
+1. Explicit stack – Replaces the tangled mutable state flags of markdown-it-py with linear, predictable parsing.
+2. Round-trip rendering – Renders back to Markdown (CommonMark spec), not just HTML. Perfect for linters and AST transforms.
+3. Portable core – Written with plain data structures, easy to port to C/Rust.
+4. Clean codebase – Designed for auditing, not just features.
+
+Status: Block elements fully supported. Inlines (emphasis, links, images) in progress.
+
+I'd appreciate brutal feedback on the architecture and design choices.</p>
   
-  <div class="ptags"><span class="tag">erlang</span><span class="tag">release</span></div>
   <div class="pact">
-    <a class="upvote" href="https://github.com/Hackerboard/hackerboard.github.io/discussions/4" target="_blank" rel="noopener">↑ upvote on GitHub</a>
+    <a class="upvote" href="https://github.com/orgs/hackerboard/discussions/4" target="_blank" rel="noopener">↑ upvote on GitHub</a>
     &middot;
-    <a href="https://github.com/Hackerboard/hackerboard.github.io/discussions/4" target="_blank" rel="noopener">3 comments</a>
+    <a href="https://github.com/orgs/hackerboard/discussions/4" target="_blank" rel="noopener">0 comments</a>
   </div>
 </article>
 </main>

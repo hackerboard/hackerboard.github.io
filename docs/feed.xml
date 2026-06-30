@@ -12,6 +12,24 @@
     <description>_No response_</description>
   </item>
   <item>
+    <title>Show HB: puku-markdown - Explicit‑stack, pure CommonMark parser &amp; renderer</title>
+    <link>https://github.com/curlinkw/puku-markdown</link>
+    <guid isPermaLink="false">https://github.com/orgs/hackerboard/discussions/4</guid>
+    <pubDate>Tue, 30 Jun 2026 14:17:29 GMT</pubDate>
+    <description>I built puku-markdown as a refactoring effort targeting markdown-it-py. While it's a great reference implementation, the actual Python port suffers from accumulated quirks, overly complex mutable state, and edge-case brittleness that make maintenance a headache.
+
+This is a from-scratch rebuild that preserves CommonMark compliance while prioritizing clean architecture:
+
+1. Explicit stack – Replaces the tangled mutable state flags of markdown-it-py with linear, predictable parsing.
+2. Round-trip rendering – Renders back to Markdown (CommonMark spec), not just HTML. Perfect for linters and AST transforms.
+3. Portable core – Written with plain data structures, easy to port to C/Rust.
+4. Clean codebase – Designed for auditing, not just features.
+
+Status: Block elements fully supported. Inlines (emphasis, links, images) in progress.
+
+I'd appreciate brutal feedback on the architecture and design choices.</description>
+  </item>
+  <item>
     <title>Anthropic reveals changes to Claude's harnesses and operating instructions likely caused degradation</title>
     <link>https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation</link>
     <guid isPermaLink="false">https://github.com/orgs/hackerboard/discussions/3</guid>

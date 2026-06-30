@@ -19,6 +19,20 @@
       ]
     },
     {
+      "id": "https://github.com/orgs/hackerboard/discussions/4",
+      "url": "https://hackerboard.github.io/archive/4.html",
+      "external_url": "https://github.com/curlinkw/puku-markdown",
+      "title": "Show HB: puku-markdown - Explicit‑stack, pure CommonMark parser & renderer",
+      "summary": "I built puku-markdown as a refactoring effort targeting markdown-it-py. While it's a great reference implementation, the actual Python port suffers from accumulated quirks, overly complex mutable state, and edge-case brittleness that make maintenance a headache.\n\nThis is a from-scratch rebuild that preserves CommonMark compliance while prioritizing clean architecture:\n\n1. Explicit stack – Replaces the tangled mutable state flags of markdown-it-py with linear, predictable parsing.\n2. Round-trip rendering – Renders back to Markdown (CommonMark spec), not just HTML. Perfect for linters and AST transforms.\n3. Portable core – Written with plain data structures, easy to port to C/Rust.\n4. Clean codebase – Designed for auditing, not just features.\n\nStatus: Block elements fully supported. Inlines (emphasis, links, images) in progress.\n\nI'd appreciate brutal feedback on the architecture and design choices.",
+      "tags": [],
+      "date_published": "2026-06-30T14:17:29Z",
+      "authors": [
+        {
+          "name": "curlinkw"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/orgs/hackerboard/discussions/3",
       "url": "https://hackerboard.github.io/archive/3.html",
       "external_url": "https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation",
